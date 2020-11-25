@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+body{
+  text-align: center;
+  background-color: #282c34;
+  color: cornsilk;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
