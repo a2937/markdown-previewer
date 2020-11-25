@@ -1,7 +1,7 @@
 {
   "name": "markdown-previewer",
   "version": "0.1.0",
-  "homepage": "http://a2937.github.io/react-gh-pages",
+  "homepage": "https://github.com/a2937/markdown-previewer",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
