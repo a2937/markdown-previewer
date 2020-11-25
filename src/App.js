@@ -52,7 +52,8 @@ class App extends Component {
       <div id="body">
 
         <h1>Markdown previewer</h1>
-        <p>This app lets you render markdown into html</p>
+        <p>This app lets you render markdown into html.</p>
+        <p>Learn more about markdown <a href="https://www.markdowntutorial.com/">here.</a></p>
         <img src="./notebook.jpg" alt="notebook" height="15%" width="15%" />
         <br />
         <strong>Markdown:</strong>
