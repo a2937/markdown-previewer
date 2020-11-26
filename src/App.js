@@ -3,7 +3,7 @@ import DomPurify from 'dompurify'
 import marked from 'marked'
 import 'marked'
 import './App.css';
-
+import notebook from './notebook.jpg';
 class App extends Component {
 
   constructor() {
@@ -21,7 +21,6 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
 
@@ -30,11 +29,13 @@ class App extends Component {
 
     this.setState({ body: event.target.value });
     var rawText = event.target.value;
-    var markdown = marked(rawText).replace(/\r?\n/g, "<br />");
-    document.getElementById("preview").innerHTML = DomPurify.sanitize(markdown);
+    document.getElementById("preview").innerHTML = this.parseMarkdown(rawText);
   }
 
-
+  parseMarkdown(rawText) {
+    var markdown = marked(rawText).replace(/\r?\n/g, "<br />");
+    return DomPurify.sanitize(markdown);
+  }
 
   handleSubmit(event) {
 
@@ -43,7 +44,9 @@ class App extends Component {
     event.preventDefault();
   }
 
-
+  componentDidMount() {
+    document.getElementById("preview").innerHTML = this.parseMarkdown(this.state.body);
+  }
 
   render() {
 
@@ -54,18 +57,19 @@ class App extends Component {
         <h1>Markdown previewer</h1>
         <p>This app lets you render markdown into html.</p>
         <p>Learn more about markdown <a href="https://www.markdowntutorial.com/">here.</a></p>
-        <img src="./notebook.jpg" alt="notebook" height="15%" width="15%" />
+        <img src={notebook} alt="notebook" height="15%" width="15%" />
         <br />
         <strong>Markdown:</strong>
         <br />
+
         <textarea id="editor"
 
           value={this.state.body}
 
           onChange={this.handleChange} />
-
-
-        <p id="preview">
+        <br></br>
+        <strong>Preview:</strong>
+        <p id="preview" >
 
         </p>
 
