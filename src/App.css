@@ -34,7 +34,11 @@ body{
   color: cornsilk;
 }
 
-
+textarea
+{
+  height:max-content;
+  width:max-content;
+}
 
 @keyframes App-logo-spin {
   from {

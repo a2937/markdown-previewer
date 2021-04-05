@@ -12,7 +12,7 @@ class App extends Component {
 
     this.state = {
 
-      body: '# h1 \n ## h2 '
+      body: '# h1 \n ## h2 \n[a](https://commonmark.org/help/tutorial/07-links.html)\n\n `Code`  <pre>```html: console.log("My actual code"); //Color is set to zero```</pre> \n  \n - bananas \n - apples \n - muffins \n > Please do not quote me on that \n![Notebook](/notebook.jpg) \n **Extra bold text** ```boolean != true``` <pre><code>//Press return</code></pre>'
 
     };
 
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   parseMarkdown(rawText) {
-    var markdown = marked(rawText).replace(/\r?\n/g, "<br />");
+    var markdown = marked(rawText).replace(/  +/g, "<br/>");
     return DomPurify.sanitize(markdown);
   }
 
@@ -62,7 +62,9 @@ class App extends Component {
         <strong>Markdown:</strong>
         <br />
 
+
         <textarea id="editor"
+
 
           value={this.state.body}
 
@@ -70,18 +72,10 @@ class App extends Component {
         <br></br>
         <strong>Preview:</strong>
         <p id="preview" >
-
         </p>
-
-
-
-
       </div>
-
     );
-
   }
-
 }
 
 
